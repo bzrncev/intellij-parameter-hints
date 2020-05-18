@@ -54,6 +54,14 @@ export function parse(code: string) {
 
   parsePhpObject(parsedPhpCode);
 
+  function getBeginingOfArgument(arg: any): any {
+    if (arg.left) {
+      return getBeginingOfArgument(arg.left);
+    }
+
+    return arg;
+  }
+
   var phpArguments: any[] = [];
 
   function parsePhpExpression(expression: any): any {
@@ -63,8 +71,9 @@ export function parse(code: string) {
           expression.what &&
           (expression.what.offset || expression.what.loc)
         ) {
-          const startLoc: any = arg.loc.start;
-          const endLoc: any = arg.loc.end;
+          const beginingOfArgument: any = getBeginingOfArgument(arg);
+          const startLoc: any = beginingOfArgument.loc.start;
+          const endLoc: any = beginingOfArgument.loc.end;
           const expressionLoc = expression.what.offset
             ? expression.what.offset.loc.start
             : expression.what.loc.end;
@@ -99,7 +108,7 @@ export function parse(code: string) {
   }
 
   expressions.forEach((expression) => {
-    const test = parsePhpExpression(expression);
+    parsePhpExpression(expression);
   });
 
   return phpArguments;
