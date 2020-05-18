@@ -1,129 +1,129 @@
 {
-    "name": "intellij-parameter-hints",
-    "displayName": "IntelliJ Parameter Hints",
-    "description": "PHP Parameter Hints in IntelliJ Style",
-    "publisher": "BobbyZrncev",
-    "version": "0.2.0",
-    "license": "MIT",
-    "homepage": "https://github.com/bzrncev/intellij-parameter-hints",
-    "bugs": {
-        "url": "https://github.com/bzrncev/intellij-parameter-hints/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/bzrncev/intellij-parameter-hints"
-    },
-    "engines": {
-        "vscode": "^1.40.0"
-    },
-    "categories": [
-        "Other"
+  "name": "intellij-parameter-hints",
+  "displayName": "IntelliJ Parameter Hints",
+  "description": "PHP Parameter Hints in IntelliJ Style",
+  "publisher": "BobbyZrncev",
+  "version": "0.3.0",
+  "license": "MIT",
+  "homepage": "https://github.com/bzrncev/intellij-parameter-hints",
+  "bugs": {
+    "url": "https://github.com/bzrncev/intellij-parameter-hints/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bzrncev/intellij-parameter-hints"
+  },
+  "engines": {
+    "vscode": "^1.40.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "phpannotations.toggle",
+        "title": "PHP Annotations: Hide / Show Annotations"
+      }
     ],
-    "activationEvents": [
-        "*"
+    "configuration": [
+      {
+        "title": "PHP Annotations",
+        "properties": {
+          "phpannotations.enabled": {
+            "type": "boolean",
+            "description": "Enable PHP Annotations",
+            "default": true
+          },
+          "phpannotations.fontWeight": {
+            "type": "string",
+            "default": "400",
+            "enum": [
+              "100",
+              "200",
+              "300",
+              "400",
+              "500",
+              "600",
+              "700",
+              "800",
+              "900"
+            ],
+            "description": "Annotation styling of font-weight CSS property"
+          },
+          "phpannotations.fontStyle": {
+            "type": "string",
+            "default": "italic",
+            "enum": [
+              "normal",
+              "italic"
+            ],
+            "description": "Annotation styling of font-style CSS property"
+          },
+          "phpannotations.margin": {
+            "type": "number",
+            "default": 5,
+            "description": "Annotation styling of margin CSS property"
+          },
+          "phpannotations.fontSize": {
+            "type": "number",
+            "default": 12,
+            "description": "Annotation styling of font size CSS property"
+          }
+        }
+      }
     ],
-    "main": "./out/extension.js",
-    "contributes": {
-        "commands": [
-            {
-                "command": "phpannotations.toggle",
-                "title": "PHP Annotations: Hide / Show Annotations"
-            }
-        ],
-        "configuration": [
-            {
-                "title": "PHP Annotations",
-                "properties": {
-                    "phpannotations.enabled": {
-                        "type": "boolean",
-                        "description": "Enable PHP Annotations",
-                        "default": true
-                    },
-                    "phpannotations.fontWeight": {
-                        "type": "string",
-                        "default": "400",
-                        "enum": [
-                            "100",
-                            "200",
-                            "300",
-                            "400",
-                            "500",
-                            "600",
-                            "700",
-                            "800",
-                            "900"
-                        ],
-                        "description": "Annotation styling of font-weight CSS property"
-                    },
-                    "phpannotations.fontStyle": {
-                        "type": "string",
-                        "default": "italic",
-                        "enum": [
-                            "normal",
-                            "italic"
-                        ],
-                        "description": "Annotation styling of font-style CSS property"
-                    },
-                    "phpannotations.margin": {
-                        "type": "number",
-                        "default": 5,
-                        "description": "Annotation styling of margin CSS property"
-                    },
-                    "phpannotations.fontSize": {
-                        "type": "number",
-                        "default": 12,
-                        "description": "Annotation styling of font size CSS property"
-                    }
-                }
-            }
-        ],
-        "colors": [
-            {
-                "id": "phpannotations.annotationForeground",
-                "description": "Specifies the foreground color for the annotations",
-                "defaults": {
-                    "dark": "#adbec5",
-                    "light": "#797a79",
-                    "highContrast": "#adbec5"
-                }
-            },
-            {
-                "id": "phpannotations.annotationBackground",
-                "description": "Specifies the background color for the annotations",
-                "defaults": {
-                    "dark": "#1e2c31",
-                    "light": "#f4f5f4",
-                    "highContrast": "#1e2c31"
-                }
-            }
-        ],
-        "keybindings": [
-            {
-                "command": "phpannotations.toggle",
-                "key": "ctrl+k a",
-                "mac": "cmd+k a"
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "pretest": "npm run compile",
-        "test": "node ./out/test/runTest.js"
-    },
-    "devDependencies": {
-        "@types/glob": "^7.1.1",
-        "@types/mocha": "^5.2.7",
-        "@types/node": "^12.11.7",
-        "@types/vscode": "^1.40.0",
-        "glob": "^7.1.5",
-        "mocha": "^6.2.2",
-        "typescript": "^3.6.4",
-        "tslint": "^5.20.0",
-        "vscode-test": "^1.2.2"
-    },
-    "dependencies": {
-        "php-parser": "^3.0.0-prerelease.9"
-    }
+    "colors": [
+      {
+        "id": "phpannotations.annotationForeground",
+        "description": "Specifies the foreground color for the annotations",
+        "defaults": {
+          "dark": "#adbec5",
+          "light": "#797a79",
+          "highContrast": "#adbec5"
+        }
+      },
+      {
+        "id": "phpannotations.annotationBackground",
+        "description": "Specifies the background color for the annotations",
+        "defaults": {
+          "dark": "#1e2c31",
+          "light": "#f4f5f4",
+          "highContrast": "#1e2c31"
+        }
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "phpannotations.toggle",
+        "key": "ctrl+k a",
+        "mac": "cmd+k a"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.40.0",
+    "glob": "^7.1.5",
+    "mocha": "^6.2.2",
+    "typescript": "^3.6.4",
+    "tslint": "^5.20.0",
+    "vscode-test": "^1.2.2"
+  },
+  "dependencies": {
+    "php-parser": "^3.0.0-prerelease.9"
+  }
 }
